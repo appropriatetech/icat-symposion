@@ -1,2 +1,4 @@
 *.pyc
+.env*
 env*/
+site_media/
