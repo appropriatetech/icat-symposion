@@ -1,1 +1,1 @@
-web: bin/start-nginx gunicorn src.project.wsgi -c gunicorn.conf.py
+web: bin/start-nginx gunicorn icat_site.wsgi -c gunicorn.conf.py
