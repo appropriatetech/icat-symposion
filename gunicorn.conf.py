@@ -1,6 +1,6 @@
 from os import environ
 
-bind = '0.0.0.0:' + environ.get('PORT')
+bind = '/tmp/nginx.socket'
 workers = int(environ.get('WORKERS', '4'))
 
 
