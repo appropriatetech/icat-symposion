@@ -1,6 +1,6 @@
 from os import environ
 
-bind = '/tmp/nginx.socket'
+bind = 'unix:/tmp/nginx.socket'
 workers = int(environ.get('WORKERS', '4'))
 
 
