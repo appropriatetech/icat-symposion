@@ -9,8 +9,9 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 EMAIL_DEBUG = DEBUG
 
+import dj_database_url
 DATABASES = {
-    "default": {
+    "default": dj_database_url.config(env='DATABASE_URL') or {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": os.path.join(PROJECT_ROOT, "dev.db"),
     }
