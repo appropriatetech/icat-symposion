@@ -31,3 +31,4 @@ dj-database-url==0.3.0
 gunicorn
 psycopg2
 django_debug_toolbar==1.4
+raven==5.10.2

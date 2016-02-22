@@ -137,7 +137,6 @@ INSTALLED_APPS = [
     # theme
     "bootstrapform",
     "pinax_theme_bootstrap",
-    "debug_toolbar",
 
     # external
     "account",
@@ -150,6 +149,8 @@ INSTALLED_APPS = [
     "sitetree",
     "taggit",
     "timezones",
+    "raven.contrib.django.raven_compat",
+    "debug_toolbar",
 
     # symposion
     "symposion",
@@ -230,4 +231,10 @@ CONFERENCE_ID = 1
 SYMPOSION_PAGE_REGEX = r"(([\w-]{1,})(/[\w-]{1,})*)/"
 PROPOSAL_FORMS = {
     "proposal": "icat_site.proposals.forms.ProposalForm",
+}
+
+import raven
+RAVEN_CONFIG = {
+    'dsn': os.environ.get('SENTRY_DSN', ''),
+    'release': raven.fetch_git_sha(os.path.dirname(__file__)),
 }
