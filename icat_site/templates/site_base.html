@@ -6,11 +6,36 @@
 {% load metron_tags %}
 {% load i18n %}
 
+{% block topbar %}
+    <div class="navbar-header">
+        <h1>International Network on Appropriate Technology</h1>
+    </div>
+{% endblock %}
+
 {% block viewport %}{% endblock %}
 
 {% block style_base %}
+    <link rel="apple-touch-icon" sizes="57x57" href="https://{{ site.domain }}/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://{{ site.domain }}/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://{{ site.domain }}/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://{{ site.domain }}/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://{{ site.domain }}/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://{{ site.domain }}/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://{{ site.domain }}/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://{{ site.domain }}/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://{{ site.domain }}/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="https://{{ site.domain }}/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://{{ site.domain }}/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://{{ site.domain }}/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://{{ site.domain }}/icons/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#e48934">
+    <meta name="msapplication-TileImage" content="https://{{ site.domain }}/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#e48934">
+    <link rel="manifest" href="https://{{ site.domain }}/manifest.json">
+
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,600,400,300' rel='stylesheet'>
     <link href="{% static "pinax/css/theme.css" %}" rel="stylesheet">
-    <link href="{% static "css/site.css" %}" rel="stylesheet">
+    <link href="https://{{ site.domain }}/css/main.css" rel="stylesheet">
     {% block extra_style %}{% endblock %}
 {% endblock %}
 
@@ -20,28 +45,42 @@
     {% block extra_head %}{% endblock %}
 {% endblock %}
 
-{% block navbar_class %}navbar-fixed-top{% endblock %}
+{% block navbar_class %}{% endblock %}
 {% block wrapper_class %}outer-container{% endblock %}
-{% block site_brand %}
-    <a class="navbar-brand" href="{% url "home" %}">{{ SITE_NAME }}</a>
-{% endblock %}
-
-{% block nav %}
-    {% sitetree_menu from "main" include "trunk" template "sitetree/menu_bootstrap3.html" %}
-{% endblock %}
 
 {% block body_base %}
     <div class="container">
         {% include "_messages.html" %}
         {% block body_outer %}
             <div class="row">
-                <div class="col-md-9">
-                    {% block body %}
-                    {% endblock %}
-                </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
+                  <div class="main-sidebar">
+                    <a href="https://{{ site.domain }}/">
+                      <img src="http://appropriatetech.net/files/images/conf-logo.png" width="205" height="214">
+                    </a>
+
+                    <nav>
+                      <ul class="nav navbar-side">
+
+                        <li>
+                          <a href="https://{{ site.domain }}/inat">About the INAT</a>
+                          <a href="https://{{ site.domain }}/icat7">The 7<sup>th</sup> ICAT</a>
+                        </li>
+
+                      </ul>
+                    </nav>
                     {% block sidebar %}
                         {% include "_default_sidebar.html" %}
+                    {% endblock %}
+                  </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="collapse navbar-collapse navbar-responsive-collapse">
+                    {% block account_bar %}{% include "_account_bar.html" %}{% endblock %}
+                    </div>
+
+                    {% block body %}
                     {% endblock %}
                 </div>
             </div>

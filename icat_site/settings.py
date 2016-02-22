@@ -5,7 +5,7 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir
 PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
 BASE_DIR = PACKAGE_ROOT
 
-DEBUG = True
+DEBUG = (os.environ.get('DEBUG', 'False') == 'True')
 TEMPLATE_DEBUG = DEBUG
 EMAIL_DEBUG = DEBUG
 
@@ -97,6 +97,7 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     "account.context_processors.account",
     "pinax_theme_bootstrap.context_processors.theme",
     "symposion.reviews.context_processors.reviews",
+    "icat_site.context_processors.site",
 ]
 
 
@@ -136,6 +137,7 @@ INSTALLED_APPS = [
     # theme
     "bootstrapform",
     "pinax_theme_bootstrap",
+    "debug_toolbar",
 
     # external
     "account",
@@ -227,6 +229,5 @@ MARKITUP_SKIN = "markitup/skins/simple"
 CONFERENCE_ID = 1
 SYMPOSION_PAGE_REGEX = r"(([\w-]{1,})(/[\w-]{1,})*)/"
 PROPOSAL_FORMS = {
-    "tutorial": "icat_site.proposals.forms.TutorialProposalForm",
-    "talk": "icat_site.proposals.forms.TalkProposalForm",
+    "proposal": "icat_site.proposals.forms.ProposalForm",
 }

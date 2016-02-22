@@ -1,21 +1,50 @@
 from django.db import models
+from django.utils.translation import ugettext as _
 
 from symposion.proposals.models import ProposalBase
 
 
 class Proposal(ProposalBase):
 
-    AUDIENCE_LEVEL_NOVICE = 1
-    AUDIENCE_LEVEL_EXPERIENCED = 2
-    AUDIENCE_LEVEL_INTERMEDIATE = 3
+    # Proposal Category
+    # ~~~~~~~~~~~~~~~~~
 
-    AUDIENCE_LEVELS = [
-        (AUDIENCE_LEVEL_NOVICE, "Novice"),
-        (AUDIENCE_LEVEL_INTERMEDIATE, "Intermediate"),
-        (AUDIENCE_LEVEL_EXPERIENCED, "Experienced"),
+    CATEGORY_GREEN_ECONOMY = 1
+    CATEGORY_ENERGY = 2
+    CATEGORY_WATER___SANITATION = 3
+    CATEGORY_HEALTH = 4
+    CATEGORY_CONSTRUCTION___INFRASTRUCTURE = 5
+    CATEGORY_ENVIRONMENT___AGRICULTURE = 6
+    CATEGORY_KNOWLEDGE___TECHNOLOGY_TRANSFER = 7
+    CATEGORY_POLICY___STANDARDS___ETHICS = 8
+
+    CATEGORIES = [
+        (CATEGORY_GREEN_ECONOMY, _('Green Economy')),
+        (CATEGORY_ENERGY, _('Energy')),
+        (CATEGORY_WATER___SANITATION, _('Water & Sanitation')),
+        (CATEGORY_HEALTH, _('Health')),
+        (CATEGORY_CONSTRUCTION___INFRASTRUCTURE, _('Construction & Infrastructure')),
+        (CATEGORY_ENVIRONMENT___AGRICULTURE, _('Environment & Agriculture')),
+        (CATEGORY_KNOWLEDGE___TECHNOLOGY_TRANSFER, _('Knowledge & Technology Transfer')),
+        (CATEGORY_POLICY___STANDARDS___ETHICS, _('Policy, Standards, & Ethics')),
     ]
 
-    audience_level = models.IntegerField(choices=AUDIENCE_LEVELS)
+    category = models.IntegerField(choices=CATEGORIES)
+
+    # Proposal Format
+    # ~~~~~~~~~~~~~~~
+
+    FORMAT_FULL_PAPER___PRESENTATION = 1
+    FORMAT_POSTER = 2
+    FORMAT_PROJECT = 3
+
+    FORMATS = [
+        (FORMAT_FULL_PAPER___PRESENTATION, _('Full Paper & Presentation')),
+        (FORMAT_POSTER, _('Poster')),
+        (FORMAT_PROJECT, _('Project')),
+    ]
+
+    format = models.IntegerField(choices=FORMATS)
 
     recording_release = models.BooleanField(
         default=True,
@@ -23,14 +52,4 @@ class Proposal(ProposalBase):
     )
 
     class Meta:
-        abstract = True
-
-
-class TalkProposal(Proposal):
-    class Meta:
-        verbose_name = "talk proposal"
-
-
-class TutorialProposal(Proposal):
-    class Meta:
-        verbose_name = "tutorial proposal"
+        verbose_name = "proposal"
