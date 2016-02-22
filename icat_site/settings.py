@@ -5,7 +5,7 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir
 PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
 BASE_DIR = PACKAGE_ROOT
 
-DEBUG = (os.environ.get('DEBUG', 'False') == 'True')
+DEBUG = (os.environ.get('DEBUG', 'True') == 'True')
 TEMPLATE_DEBUG = DEBUG
 EMAIL_DEBUG = DEBUG
 
@@ -233,9 +233,9 @@ SYMPOSION_PAGE_REGEX = r"(([\w-]{1,})(/[\w-]{1,})*)/"
 PROPOSAL_FORMS = {
     "proposal": "icat_site.proposals.forms.ProposalForm",
 }
-CONFERENCE_SITE = os.environ.get('CONFERENCE_SITE', '')
+CONFERENCE_SITE = os.environ.get('CONFERENCE_SITE', 'https://appropriatetech.github.io/icat7-website')
 
 import raven
 RAVEN_CONFIG = {
-    'dsn': os.environ.get('SENTRY_DSN', ''),
+    'dsn': os.environ.get('SENTRY_DSN', None),
 }
