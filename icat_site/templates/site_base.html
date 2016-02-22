@@ -15,27 +15,27 @@
 {% block viewport %}{% endblock %}
 
 {% block style_base %}
-    <link rel="apple-touch-icon" sizes="57x57" href="https://{{ site.domain }}/icons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="https://{{ site.domain }}/icons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="https://{{ site.domain }}/icons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="https://{{ site.domain }}/icons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="https://{{ site.domain }}/icons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="https://{{ site.domain }}/icons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="https://{{ site.domain }}/icons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="https://{{ site.domain }}/icons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="https://{{ site.domain }}/icons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="https://{{ site.domain }}/icons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://{{ site.domain }}/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="https://{{ site.domain }}/icons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://{{ site.domain }}/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ CONFERENCE_SITE }}/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ CONFERENCE_SITE }}/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ CONFERENCE_SITE }}/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ CONFERENCE_SITE }}/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ CONFERENCE_SITE }}/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ CONFERENCE_SITE }}/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ CONFERENCE_SITE }}/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ CONFERENCE_SITE }}/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ CONFERENCE_SITE }}/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{{ CONFERENCE_SITE }}/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ CONFERENCE_SITE }}/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ CONFERENCE_SITE }}/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ CONFERENCE_SITE }}/icons/favicon-16x16.png">
     <meta name="msapplication-TileColor" content="#e48934">
-    <meta name="msapplication-TileImage" content="https://{{ site.domain }}/icons/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="{{ CONFERENCE_SITE }}/icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#e48934">
-    <link rel="manifest" href="https://{{ site.domain }}/manifest.json">
+    <link rel="manifest" href="{{ CONFERENCE_SITE }}/manifest.json">
 
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,600,400,300' rel='stylesheet'>
     <link href="{% static "pinax/css/theme.css" %}" rel="stylesheet">
-    <link href="https://{{ site.domain }}/css/main.css" rel="stylesheet">
+    <link href="{{ CONFERENCE_SITE }}/css/main.css" rel="stylesheet">
     {% block extra_style %}{% endblock %}
 {% endblock %}
 

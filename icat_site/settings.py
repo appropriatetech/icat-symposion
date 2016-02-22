@@ -98,6 +98,7 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     "pinax_theme_bootstrap.context_processors.theme",
     "symposion.reviews.context_processors.reviews",
     "icat_site.context_processors.site",
+    "icat_site.context_processors.conference_site",
 ]
 
 
@@ -232,6 +233,7 @@ SYMPOSION_PAGE_REGEX = r"(([\w-]{1,})(/[\w-]{1,})*)/"
 PROPOSAL_FORMS = {
     "proposal": "icat_site.proposals.forms.ProposalForm",
 }
+CONFERENCE_SITE = os.environ.get('CONFERENCE_SITE', '')
 
 import raven
 RAVEN_CONFIG = {
