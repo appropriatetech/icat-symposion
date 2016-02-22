@@ -28,6 +28,7 @@ dj-database-url==0.3.0
 -e git+https://github.com/pinax/symposion.git@46a10b9e3ae6b1f6cc7d1648d6529fbab3201e9b#egg=symposion-master
 
 # ICAT-specific requirements
+Django==1.8.5
 gunicorn
 psycopg2
 django_debug_toolbar==1.4
