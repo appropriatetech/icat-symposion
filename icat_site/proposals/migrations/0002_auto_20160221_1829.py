@@ -7,9 +7,6 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('symposion_proposals', '0001_initial'),
-        ('symposion_reviews', '0001_initial'),
-        ('symposion_schedule', '0002_slot_name'),
         ('proposals', '0001_initial'),
     ]
 
