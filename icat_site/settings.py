@@ -202,7 +202,19 @@ FIXTURE_DIRS = [
     os.path.join(PROJECT_ROOT, "fixtures"),
 ]
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+if EMAIL_DEBUG:
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+else:
+    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+    EMAIL_HOST = os.environ.get('EMAIL_HOST')
+    EMAIL_PORT = os.environ.get('EMAIL_PORT')
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+    EMAIL_USE_TLS = (os.environ.get('EMAIL_USE_TLS', 'false').lower() == 'true')
+    EMAIL_USE_SSL = (os.environ.get('EMAIL_USE_SSL', 'false').lower() == 'true')
+    EMAIL_TIMEOUT = os.environ.get('EMAIL_TIMEOUT')
+    EMAIL_SSL_KEYFILE = os.environ.get('EMAIL_SSL_KEYFILE')
+    EMAIL_SSL_CERTFILE = os.environ.get('EMAIL_SSL_CERTFILE')
 
 ACCOUNT_OPEN_SIGNUP = True
 ACCOUNT_EMAIL_UNIQUE = True
